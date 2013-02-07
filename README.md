@@ -31,6 +31,6 @@ http://eric.brechemier.name
 LICENSE
 -------
 
-MIT  
-http://en.wikipedia.org/wiki/MIT_License
+CC0 - No Copyright
+https://creativecommons.org/publicdomain/zero/1.0/
 
