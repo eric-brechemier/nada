@@ -13,8 +13,9 @@ assert( not( undefined ),      "TEST1: not() must return true for undefined" );
 */
 function checkFalseFor( value ) {
   var result = not( value );
-  assert( result,     "TEST2: not() must return false for other values ; " +
-                      "found: " + result + " for '" + value + "'" );
+  assert( result === false,
+                        "TEST2: not() must return false for other values ; " +
+                        "found: " + result + " for '" + value + "'" );
 }
 
 checkFalseFor( false );
