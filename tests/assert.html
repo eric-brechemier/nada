@@ -1,0 +1,48 @@
+<script src="../code/assert.js"></script>
+<script>
+try {
+  assert( true,                                              "assert(true)" );
+} catch ( e1 ) {
+  throw new Error(
+    "TEST 1: assert( true, ... ) must not throw any exception, caught: " +
+    e1
+  );
+}
+
+/*
+  Check that an exception is thrown with given message by assert()
+  when the value is not true
+*/
+function checkException ( value ) {
+  var failed = false;
+  var message = "expected assertion message for alert( "+value+" )";
+  try {
+    assert( value,                                             message );
+  } catch ( e2 ) {
+    failed = true;
+    if ( e2.message !== message ) {
+      throw new Error(
+        "TEST2: Provided message expected in exception for value '" +
+        value + "' ; " +
+        "expected: " + message + " ; " +
+        "found: " + e2.message
+      );
+    }
+  }
+  if ( !failed ) {
+    throw new Error(
+      "TEST2: Exception expected any value different from true ; " +
+      "no exception caught for '" + value + "'"
+    );
+  }
+}
+
+checkException(false);
+checkException({});
+checkException("");
+checkException("abc");
+checkException([]);
+checkException([1,2,3]);
+checkException(42);
+
+</script>
