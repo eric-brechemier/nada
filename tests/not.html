@@ -1,0 +1,30 @@
+<script src="../code/assert.js"></script>
+<script src="../code/not.js"></script>
+<script>
+window.onerror = function( message ) {
+  document.write( "ERROR: " + message );
+}
+
+assert( not( null ),                "TEST1: not() must return true for null" );
+assert( not( undefined ),      "TEST1: not() must return true for undefined" );
+
+/*
+  Check that not() returns false for values different from null and undefined
+*/
+function checkFalseFor( value ) {
+  var result = not( value );
+  assert( result,     "TEST2: not() must return false for other values ; " +
+                      "found: " + result + " for '" + value + "'" );
+}
+
+checkFalseFor( false );
+checkFalseFor( {} );
+checkFalseFor( "" );
+checkFalseFor( "abc" );
+checkFalseFor( [] );
+checkFalseFor( [1,2,3] );
+checkFalseFor( 0 );
+checkFalseFor( 42 );
+
+document.write( "SUCCESS" );
+</script>
