@@ -1,5 +1,9 @@
 <script src="../code/assert.js"></script>
 <script>
+window.onerror = function( message ){
+  document.write( "ERROR: " + message );
+}
+
 try {
   assert( true,                                              "assert(true)" );
 } catch ( e1 ) {
@@ -45,4 +49,5 @@ checkException([]);
 checkException([1,2,3]);
 checkException(42);
 
+document.write("SUCCESS");
 </script>
