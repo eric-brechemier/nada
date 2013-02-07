@@ -31,6 +31,6 @@ http://eric.brechemier.name
 LICENSE
 -------
 
-CC0 - No Copyright
+CC0 - No Copyright  
 https://creativecommons.org/publicdomain/zero/1.0/
 
