@@ -1,0 +1,28 @@
+<script src="../assert.js"></script>
+<script src="../not.js"></script>
+<script src="../copyArray.js"></script>
+<script>
+window.onerror = function( message ) {
+  document.write( "ERROR: " + message );
+}
+
+var result = copyArray( [] );
+assert( !not(result) &&
+        result.length === 0,
+                               "empty array expected for copy of empty array");
+
+var object = { id: 'one' };
+var number = 42;
+var array = [1,2,3];
+result = copyArray( [object,number,array] );
+assert( !not(result) &&
+        result.length === 3 &&
+        result[0] === object &&
+        result[1] === number &&
+        result[2] === array,
+                                      "shallow copy of given array expected");
+
+document.write( "SUCCESS" );
+</script>
+
+
