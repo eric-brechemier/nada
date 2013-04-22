@@ -1,28 +1,28 @@
+<script src="test.js"></script>
 <script src="../assert.js"></script>
+<script src="../bind.js"></script>
 <script src="../no.js"></script>
 <script src="../copy.js"></script>
 <script>
-window.onerror = function( message ) {
-  document.write( "ERROR: " + message );
-}
+test(function(){
 
-var result = copy( [] );
-assert( !no(result) &&
-        result.length === 0,
+  var result = copy( [] );
+  assert( !no(result) &&
+          result.length === 0,
                                "empty array expected for copy of empty array");
 
-var object = { id: 'one' };
-var number = 42;
-var array = [1,2,3];
-result = copy( [object,number,array] );
-assert( !no(result) &&
-        result.length === 3 &&
-        result[0] === object &&
-        result[1] === number &&
-        result[2] === array,
+  var object = { id: 'one' };
+  var number = 42;
+  var array = [1,2,3];
+  result = copy( [object,number,array] );
+  assert( !no(result) &&
+          result.length === 3 &&
+          result[0] === object &&
+          result[1] === number &&
+          result[2] === array,
                                       "shallow copy of given array expected");
 
-document.write( "SUCCESS" );
+}, bind( document.write, document ) );
 </script>
 
 

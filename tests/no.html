@@ -1,31 +1,30 @@
+<script src="test.js"></script>
 <script src="../assert.js"></script>
+<script src="../bind.js"></script>
 <script src="../no.js"></script>
 <script>
-window.onerror = function( message ) {
-  document.write( "ERROR: " + message );
-}
+test(function(){
 
-assert( no( null ),                  "TEST1: no() must return true for null" );
-assert( no( undefined ),        "TEST1: no() must return true for undefined" );
+  assert( no( null ),                "TEST1: no() must return true for null" );
+  assert( no( undefined ),      "TEST1: no() must return true for undefined" );
 
-/*
-  Check that not() returns false for values different from null and undefined
-*/
-function checkFalseFor( value ) {
-  var result = no( value );
-  assert( result === false,
+  /*
+    Check that not() returns false for values different from null and undefined
+  */
+  function checkFalseFor( value ) {
+    var result = no( value );
+    assert( result === false,
                          "TEST2: no() must return false for other values ; " +
                          "found: " + result + " for '" + value + "'" );
-}
+  }
 
-checkFalseFor( false );
-checkFalseFor( {} );
-checkFalseFor( "" );
-checkFalseFor( "abc" );
-checkFalseFor( [] );
-checkFalseFor( [1,2,3] );
-checkFalseFor( 0 );
-checkFalseFor( 42 );
-
-document.write( "SUCCESS" );
+  checkFalseFor( false );
+  checkFalseFor( {} );
+  checkFalseFor( "" );
+  checkFalseFor( "abc" );
+  checkFalseFor( [] );
+  checkFalseFor( [1,2,3] );
+  checkFalseFor( 0 );
+  checkFalseFor( 42 );
+}, bind( document.write, document ) );
 </script>
