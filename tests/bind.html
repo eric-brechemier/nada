@@ -1,0 +1,47 @@
+<script src="test.js"></script>
+<script src="../assert.js"></script>
+<script src="../bind.js"></script>
+<script>
+test(function(){
+
+  var
+    context,
+    args,
+    ARG1 = 1,
+    ARG2 = "two",
+    ARG3 = /3/,
+    EXPECTED_RESULT = "Expected Result";
+
+  function method(){
+    context = this;
+    args = arguments;
+    return EXPECTED_RESULT;
+  }
+
+  var object = {};
+  var bound = bind( method, object )
+  assert( typeof bound === "function",         "bind must return a function");
+
+  var result = bound( ARG1, ARG2, ARG3 );
+  assert(
+    context === object &&
+    args.length === 3 &&
+    args[0] === ARG1 &&
+    args[1] === ARG2 &&
+    args[2] === ARG3 &&
+    result === EXPECTED_RESULT,
+            "bound function must be called in the context of bound object, " +
+                                             "with the same arguments, and " +
+                                           "the same value must be returned" );
+
+  context = null;
+  args = null;
+  result = bound();
+  assert(
+    context === object &&
+    args.length === 0 &&
+    result === EXPECTED_RESULT,
+       "bound function must be called likewise when no argument is provided");
+
+}, bind( document.write, document ) );
+</script>
