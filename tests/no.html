@@ -1,21 +1,21 @@
 <script src="../assert.js"></script>
-<script src="../not.js"></script>
+<script src="../no.js"></script>
 <script>
 window.onerror = function( message ) {
   document.write( "ERROR: " + message );
 }
 
-assert( not( null ),                "TEST1: not() must return true for null" );
-assert( not( undefined ),      "TEST1: not() must return true for undefined" );
+assert( no( null ),                  "TEST1: no() must return true for null" );
+assert( no( undefined ),        "TEST1: no() must return true for undefined" );
 
 /*
   Check that not() returns false for values different from null and undefined
 */
 function checkFalseFor( value ) {
-  var result = not( value );
+  var result = no( value );
   assert( result === false,
-                        "TEST2: not() must return false for other values ; " +
-                        "found: " + result + " for '" + value + "'" );
+                         "TEST2: no() must return false for other values ; " +
+                         "found: " + result + " for '" + value + "'" );
 }
 
 checkFalseFor( false );
