@@ -1,0 +1,29 @@
+<script src="test.js"></script>
+<script src="assert.js"></script>
+<script src="../privately.js"></script>
+<script>
+document.write( test(function(){
+
+  var
+    wasRun = false;
+
+  function run(){
+    wasRun = true;
+  }
+
+  privately( run );
+
+  assert( wasRun,                 "privately() must run the given function" );
+
+  var object = {};
+
+  function get(){
+    return object;
+  }
+
+  var result = privately( get );
+
+  assert( result === object,                "result value must be returned" );
+
+}) );
+</script>
