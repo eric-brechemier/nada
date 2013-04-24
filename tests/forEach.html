@@ -1,0 +1,74 @@
+<script src="test.js"></script>
+<script src="assert.js"></script>
+<script src="../forEach.js"></script>
+<script>
+document.write( test(function(){
+
+  var
+    count = 0,
+    stop,
+    ONE = 1,
+    TWO = "two",
+    THREE = /3/,
+    captured = [],
+    result;
+
+  function capture( item, i ){
+    captured.push( "item" + count, item, i );
+    count++;
+  }
+
+  result = forEach( [], capture );
+
+  assert( captured.length === 0,       "no call expected for an empty array" );
+  assert( result === false,    "no interruption expected for an empty array" );
+
+  result = forEach( [null,ONE,TWO,THREE,undefined], capture );
+
+  assert(
+    captured.length === 15 &&
+    captured[0] === "item0" &&
+    captured[1] === null &&
+    captured[2] === 0 &&
+    captured[3] === "item1" &&
+    captured[4] === ONE &&
+    captured[5] === 1 &&
+    captured[6] === "item2" &&
+    captured[7] === TWO &&
+    captured[8] === 2 &&
+    captured[9] === "item3" &&
+    captured[10] === THREE &&
+    captured[11] === 3 &&
+    captured[12] === "item4" &&
+    captured[13] === undefined &&
+    captured[14] === 4,
+            "one call expected for each item including null and undefined " +
+                               "with item and offset provided as arguments" );
+
+  assert( result === false,
+                 "no interruption expected when callback returns undefined" );
+
+  stop = 3;
+  count = 0;
+  captured = [];
+
+  function interrupt(item){
+    stop--;
+    captured.push(item);
+    return ( stop === 0 );
+  }
+
+  result = forEach( [ONE,TWO,THREE,4,5,6,7,8,9,10], interrupt );
+
+  assert(
+    captured.length === 3 &&
+    captured[0] === ONE &&
+    captured[1] === TWO &&
+    captured[2] === THREE,
+                  "iteration is expected to stop when callback returns true" );
+
+  assert( result === true,
+                          "interruption expected when callback returns true" );
+
+}) );
+</script>
