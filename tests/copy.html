@@ -1,10 +1,9 @@
 <script src="test.js"></script>
 <script src="../assert.js"></script>
-<script src="../bind.js"></script>
 <script src="../no.js"></script>
 <script src="../copy.js"></script>
 <script>
-test(function(){
+document.write( test(function(){
 
   var result = copy( [] );
   assert( !no(result) &&
@@ -22,7 +21,7 @@ test(function(){
           result[2] === array,
                                       "shallow copy of given array expected");
 
-}, bind( document.write, document ) );
+}) );
 </script>
 
 

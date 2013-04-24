@@ -1,41 +1,32 @@
 <script src="test.js"></script>
 <script src="../assert.js"></script>
-<script src="../bind.js"></script>
 <script>
-test(function(){
+document.write( test(function(){
 
   var
     ERROR_MESSAGE = "Error Message",
     ERROR_PREFIX = "ERROR: ",
     EXPECTED_SUCCESS_MESSAGE = "SUCCESS",
     wasRun,
-    isSuccess,
     actualMessage;
 
-  function callback( message ){
-    actualMessage = message;
-  }
-
-  isSuccess = test(function(){
+  var actualMessage = test(function(){
     throw new Error( ERROR_MESSAGE );
-  }, callback );
+  });
 
-  assert(
-    isSuccess === false &&
-    actualMessage === ERROR_PREFIX + ERROR_MESSAGE,
+  assert( actualMessage === ERROR_PREFIX + ERROR_MESSAGE,
                                          "thrown error must be caught and " +
                                  "error message reported with error prefix" );
 
-  isSuccess = test( function(){
+  actualMessage = test(function(){
     wasRun = true;
-  }, callback );
+  });
 
   assert(
     wasRun === true &&
-    isSuccess === true &&
     actualMessage === EXPECTED_SUCCESS_MESSAGE,
                                             "function to test must run and " +
                              "success must be reported with success message" );
 
-}, bind( document.write , document ) );
+}) );
 </script>

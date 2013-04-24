@@ -2,7 +2,7 @@
 <script src="../assert.js"></script>
 <script src="../bind.js"></script>
 <script>
-test(function(){
+document.write( test(function(){
 
   var
     context,
@@ -43,5 +43,5 @@ test(function(){
     result === EXPECTED_RESULT,
        "bound function must be called likewise when no argument is provided");
 
-}, bind( document.write, document ) );
+}) );
 </script>

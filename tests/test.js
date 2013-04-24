@@ -3,22 +3,18 @@
 
   Parameters:
     func - function(), the function to test
-    log  - function( message ), the callback for the outcome of the test,
            a string message:
-           * "SUCCESS" for success
-           * "ERROR: " followed with the error message in case of error
 
   Returns:
-    boolean, true for success, false in case of error
+    string, the outcome of the test:
+    * "SUCCESS" for success
+    * "ERROR: " followed with the error message in case of error
 */
-function test( func, log ){
-
+function test( func ){
   try {
     func();
-    log( "SUCCESS" );
-    return true;
+    return "SUCCESS";
   } catch( e ) {
-    log( "ERROR: " + e.message );
-    return false;
+    return "ERROR: " + e.message;
   }
 }

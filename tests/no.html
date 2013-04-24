@@ -1,9 +1,8 @@
 <script src="test.js"></script>
 <script src="../assert.js"></script>
-<script src="../bind.js"></script>
 <script src="../no.js"></script>
 <script>
-test(function(){
+document.write( test(function(){
 
   assert( no( null ),                "TEST1: no() must return true for null" );
   assert( no( undefined ),      "TEST1: no() must return true for undefined" );
@@ -26,5 +25,5 @@ test(function(){
   checkFalseFor( [1,2,3] );
   checkFalseFor( 0 );
   checkFalseFor( 42 );
-}, bind( document.write, document ) );
+}) );
 </script>
