@@ -20,7 +20,7 @@
   item at the current offset at the time of the call to the callback will be
   provided to the callback
 */
-function forEach( array, callback ){
+function forEach( array, callback ) {
   var
     isBreak = false,
     i,

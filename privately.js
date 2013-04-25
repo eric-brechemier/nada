@@ -35,6 +35,6 @@
   http://benalman.com
     /news/2010/11/immediately-invoked-function-expression/
 */
-function privately( func ){
+function privately( func ) {
   return func();
 }

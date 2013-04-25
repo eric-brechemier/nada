@@ -22,8 +22,8 @@
     https://developer.mozilla.org/en-US/docs/JavaScript/Reference
       /Functions_and_function_scope/Strict_mode#.22Securing.22_JavaScript
 */
-function bind( func, object ){
-  return function(){
+function bind( func, object ) {
+  return function() {
     return func.apply( object, arguments );
   };
 }

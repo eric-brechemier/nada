@@ -10,7 +10,7 @@
     * "SUCCESS" for success
     * "ERROR: " followed with the error message in case of error
 */
-function test( func ){
+function test( func ) {
   try {
     func();
     return "SUCCESS";

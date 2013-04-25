@@ -7,6 +7,6 @@
   Returns:
     array, a shallow copy of given array
 */
-function copy(array){
-  return [].concat(array);
+function copy( array ) {
+  return [].concat( array );
 }
