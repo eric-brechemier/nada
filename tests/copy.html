@@ -3,14 +3,16 @@
 <script src="../no.js"></script>
 <script src="../copy.js"></script>
 <script>
-document.write( test(function(){
+document.write( test(function() {
 
   var result = copy( [] );
   assert( !no(result) &&
           result.length === 0,
                                "empty array expected for copy of empty array");
 
-  var object = { id: 'one' };
+  var object = {
+    id: 'one'
+  };
   var number = 42;
   var array = [1,2,3];
   result = copy( [object,number,array] );

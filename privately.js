@@ -3,7 +3,7 @@
 
   This function is useful to create a private scope for the declaration
   of a module:
-  var module = privately(function(){
+  var module = privately(function() {
     // private scope
     ...
   });
@@ -13,12 +13,12 @@
     ...
   }());
   or confusing alternatives such as:
-  var module = !function(){
+  var module = !function() {
     // private scope
     ...
   };
   or even:
-  var module = new function(){
+  var module = new function() {
     // private scope
     ...
   };

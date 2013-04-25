@@ -1,7 +1,7 @@
 <script src="test.js"></script>
 <script src="assert.js"></script>
 <script>
-document.write( test(function(){
+document.write( test(function() {
 
   var
     ERROR_MESSAGE = "Error Message",
@@ -10,7 +10,7 @@ document.write( test(function(){
     wasRun,
     actualMessage;
 
-  var actualMessage = test(function(){
+  var actualMessage = test(function() {
     throw new Error( ERROR_MESSAGE );
   });
 
@@ -18,7 +18,7 @@ document.write( test(function(){
                                          "thrown error must be caught and " +
                                  "error message reported with error prefix" );
 
-  actualMessage = test(function(){
+  actualMessage = test(function() {
     wasRun = true;
   });
 

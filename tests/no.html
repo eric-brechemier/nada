@@ -2,7 +2,7 @@
 <script src="assert.js"></script>
 <script src="../no.js"></script>
 <script>
-document.write( test(function(){
+document.write( test(function() {
 
   assert( no( null ),                "TEST1: no() must return true for null" );
   assert( no( undefined ),      "TEST1: no() must return true for undefined" );
@@ -22,7 +22,7 @@ document.write( test(function(){
   checkFalseFor( "" );
   checkFalseFor( "abc" );
   checkFalseFor( [] );
-  checkFalseFor( [1,2,3] );
+  checkFalseFor( [ 1, 2, 3 ] );
   checkFalseFor( 0 );
   checkFalseFor( 42 );
 }) );
