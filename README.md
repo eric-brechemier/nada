@@ -14,7 +14,7 @@ without a module namespace or dependencies.
 To avoid cluttering the global namespace in the browser,
 you can wrap these functions in a closure of your choice.
 
-Look at unit tests for an example of use ; you can find
+Look at unit tests for an example of use; you can find
 the documentation of each function in its source code.
 
 LANGUAGE
