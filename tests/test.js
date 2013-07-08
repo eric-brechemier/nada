@@ -3,7 +3,6 @@
 
   Parameters:
     func - function(), the function to test
-           a string message:
 
   Returns:
     string, the outcome of the test:
