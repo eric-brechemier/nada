@@ -27,7 +27,7 @@ function forEach( array, callback ) {
     length = array.length;
 
   for ( i = 0; i < length && !isBreak ; i++ ){
-    isBreak = callback( array[i], i ) === true;
+    isBreak = callback( array[ i ], i ) === true;
   }
 
   return isBreak;

@@ -18,9 +18,9 @@ document.write( test(function() {
   result = copy( [ object, number, array ] );
   assert( !no(result) &&
           result.length === 3 &&
-          result[0] === object &&
-          result[1] === number &&
-          result[2] === array,
+          result[ 0 ] === object &&
+          result[ 1 ] === number &&
+          result[ 2 ] === array,
                                       "shallow copy of given array expected");
 
 }) );

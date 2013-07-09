@@ -26,9 +26,9 @@ document.write( test(function() {
   assert(
     context === object &&
     args.length === 3 &&
-    args[0] === ARG1 &&
-    args[1] === ARG2 &&
-    args[2] === ARG3 &&
+    args[ 0 ] === ARG1 &&
+    args[ 1 ] === ARG2 &&
+    args[ 2 ] === ARG3 &&
     result === EXPECTED_RESULT,
             "bound function must be called in the context of bound object, " +
                                              "with the same arguments, and " +

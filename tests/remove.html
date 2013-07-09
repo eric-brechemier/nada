@@ -23,10 +23,10 @@ document.write( test(function() {
 
   array = [ null, ONE, TWO, THREE, undefined ];
   remove( array, null );
-  assert( array.length === 4 && array[0] === ONE,
+  assert( array.length === 4 && array[ 0 ] === ONE,
                                "null expected to be removed from the array" );
   remove( array, undefined );
-  assert( array.length === 3 && array[2] === THREE,
+  assert( array.length === 3 && array[ 2 ] === THREE,
                           "undefined expected to be removed from the array" );
 
 }) );

@@ -27,21 +27,21 @@ document.write( test(function() {
 
   assert(
     captured.length === 15 &&
-    captured[0] === "item0" &&
-    captured[1] === null &&
-    captured[2] === 0 &&
-    captured[3] === "item1" &&
-    captured[4] === ONE &&
-    captured[5] === 1 &&
-    captured[6] === "item2" &&
-    captured[7] === TWO &&
-    captured[8] === 2 &&
-    captured[9] === "item3" &&
-    captured[10] === THREE &&
-    captured[11] === 3 &&
-    captured[12] === "item4" &&
-    captured[13] === undefined &&
-    captured[14] === 4,
+    captured[ 0 ] === "item0" &&
+    captured[ 1 ] === null &&
+    captured[ 2 ] === 0 &&
+    captured[ 3 ] === "item1" &&
+    captured[ 4 ] === ONE &&
+    captured[ 5 ] === 1 &&
+    captured[ 6 ] === "item2" &&
+    captured[ 7 ] === TWO &&
+    captured[ 8 ] === 2 &&
+    captured[ 9 ] === "item3" &&
+    captured[ 10 ] === THREE &&
+    captured[ 11 ] === 3 &&
+    captured[ 12 ] === "item4" &&
+    captured[ 13 ] === undefined &&
+    captured[ 14 ] === 4,
             "one call expected for each item including null and undefined " +
                                "with item and offset provided as arguments" );
 
@@ -54,7 +54,7 @@ document.write( test(function() {
 
   function interrupt( item ) {
     stop--;
-    captured.push(item);
+    captured.push( item );
     return ( stop === 0 );
   }
 
@@ -62,9 +62,9 @@ document.write( test(function() {
 
   assert(
     captured.length === 3 &&
-    captured[0] === ONE &&
-    captured[1] === TWO &&
-    captured[2] === THREE,
+    captured[ 0 ] === ONE &&
+    captured[ 1 ] === TWO &&
+    captured[ 2 ] === THREE,
                   "iteration is expected to stop when callback returns true" );
 
   assert( result === true,
