@@ -18,7 +18,7 @@ document.write( test(function() {
   */
   function checkException ( value ) {
     var failed = false;
-    var message = "expected assertion message for alert( "+value+" )";
+    var message = "expected assertion message for alert( " + value + " )";
     try {
       assert( value,                                             message );
     } catch ( e2 ) {
@@ -40,13 +40,13 @@ document.write( test(function() {
     }
   }
 
-  checkException(false);
-  checkException({});
-  checkException("");
-  checkException("abc");
-  checkException([]);
-  checkException([1,2,3]);
-  checkException(42);
+  checkException( false );
+  checkException( {} );
+  checkException( "" );
+  checkException( "abc" );
+  checkException( [] );
+  checkException( [ 1, 2, 3 ] );
+  checkException( 42 );
 
 }) );
 </script>
