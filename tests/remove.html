@@ -16,12 +16,12 @@ document.write( test(function() {
   remove( array, ONE );
   assert( array.length === 0,               "emty array expected unchanged" );
 
-  array = [ONE, ONE, ONE, ONE, ONE, ONE, ONE];
+  array = [ ONE, ONE, ONE, ONE, ONE, ONE, ONE ];
   remove( array, ONE );
   assert( array.length === 0,
                             "all identical elements expected to be removed" );
 
-  array = [null, ONE, TWO, THREE, undefined];
+  array = [ null, ONE, TWO, THREE, undefined ];
   remove( array, null );
   assert( array.length === 4 && array[0] === ONE,
                                "null expected to be removed from the array" );
