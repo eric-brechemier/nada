@@ -6,7 +6,7 @@
 document.write( test(function() {
 
   var result = copy( [] );
-  assert( !no(result) &&
+  assert( !no( result ) &&
           result.length === 0,
                                "empty array expected for copy of empty array");
 
@@ -14,8 +14,8 @@ document.write( test(function() {
     id: 'one'
   };
   var number = 42;
-  var array = [1,2,3];
-  result = copy( [object,number,array] );
+  var array = [ 1, 2, 3 ];
+  result = copy( [ object, number, array ] );
   assert( !no(result) &&
           result.length === 3 &&
           result[0] === object &&
