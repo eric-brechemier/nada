@@ -1,0 +1,42 @@
+<script src="assert.js"></script>
+<script src="test.js"></script>
+<script src="../trim.js"></script>
+<script>
+document.write( test( function() {
+
+  assert( trim( "abcdef" ) === "abcdef",
+                               "string with no space must be left untouched" );
+  assert( trim( "ab c\tde\nf" ) === "ab c\tde\nf",
+                                "string space within must be left untouched" );
+
+  assert( trim( "    abcdef" ) === "abcdef",  "space before must be removed" );
+  assert( trim( "abcdef     " ) === "abcdef",  "space after must be removed" );
+  assert( trim( "  abcdef " ) === "abcdef",   "space around must be removed" );
+
+  assert( trim( "\t\t\tabcdef" ) === "abcdef", "tabs before must be removed" );
+  assert( trim( "abcdef\t\t\t" ) === "abcdef",  "tabs after must be removed" );
+  assert( trim( "\t\t\tabcdef\t\t" ) === "abcdef",
+                                               "tabs around must be removed" );
+  assert( trim( "\n\n\nabcdef" ) === "abcdef",
+                                        "line breaks before must be removed" );
+  assert( trim( "abcdef\n\n\n" ) === "abcdef",
+                                         "line breaks after must be removed" );
+  assert( trim( "\n\n\nabcdef\n\n\n" ) === "abcdef",
+                                        "line breaks around must be removed" );
+
+  assert( trim( "\n\t abcdef" ) === "abcdef",
+                                         "misc space before must be removed" );
+  assert( trim( "abcdef\n\t " ) === "abcdef",
+                                          "misc space after must be removed" );
+  assert( trim( " \t abcdef \t \n" ) === "abcdef",
+                                         "misc space around must be removed" );
+
+  assert( trim( "\n\t ab cd \nef" ) === "ab cd \nef",
+            "misc space before must be removed, misc space within preserved" );
+  assert( trim( "ab cd \nef\n\t " ) === "ab cd \nef",
+             "misc space after must be removed, misc space within preserved" );
+  assert( trim( "\n \tab cd \nef  \t\n " ) === "ab cd \nef",
+            "misc space around must be removed, misc space within preserved" );
+
+}) );
+</script>
