@@ -1,0 +1,34 @@
+<script src="assert.js"></script>
+<script src="test.js"></script>
+<script src="../endsWith.js"></script>
+<script>
+document.write( test( function() {
+
+  assert( endsWith( "", "" ),   "empty suffix must be found in empty string" );
+  assert( endsWith( "abcdef", "" ),
+                            "empty suffix must be found in non-empty string" );
+  assert( endsWith( "abcdef", "f" ),
+                             "1-letter suffix must be found in longer chain" );
+  assert( endsWith( "abcdef", "ef" ),
+                             "2-letter suffix must be found in longer chain" );
+  assert( endsWith( "abcdef", "def" ),
+                             "3-letter suffix must be found in longer chain" );
+  assert( endsWith( "abcdef", "abcdef" ),
+                                       "full string must be found in itself" );
+
+  assert( !endsWith( "", "abcdef" ),
+                        "non-empty suffix must not be found in empty string" );
+  assert( !endsWith( "f", "abcdef" ),
+                           "long suffix must not be found in 1-letter chain" );
+  assert( !endsWith( "ef", "abcdef" ),
+                           "long suffix must not be found in 2-letter chain" );
+  assert( !endsWith( "def", "abcdef" ),
+                           "long prefix must not be found in 3-letter chain" );
+
+  assert( endsWith( "abc+def*ghi(klm)?no", "c+def*ghi(klm)?no" ),
+                              "suffix with special characters must be found" );
+  assert( !endsWith( "c+def*ghi(klm)?no", "abc+def*ghi(klm)?no" ),
+        "suffix with special characters must not be found in shorter string" );
+
+}) );
+</script>
