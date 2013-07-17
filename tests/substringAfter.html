@@ -27,20 +27,20 @@ document.write( test( function() {
 
   assert( substringAfter( "", "abcdef" ) === "",
               "empty string expected in empty string after non-empty string" );
-  assert( substringAfter( "a", "abcdef" ) === "a",
-             "full string expected after string not found in 1-letter chain" );
-  assert( substringAfter( "bcdef", "abcdef" ) === "bcdef",
-        "full string expected after string with one more character at start" );
-  assert( substringAfter( "abdef", "abcdef" ) === "abdef",
-   "full string expected after string with one more character in the middle" );
-  assert( substringAfter( "abcde", "abcdef" ) === "abcde",
-     "full string expected after string with one more character in the end" );
+  assert( substringAfter( "a", "abcdef" ) === "",
+            "empty string expected after string not found in 1-letter chain" );
+  assert( substringAfter( "bcdef", "abcdef" ) === "",
+       "empty string expected after string with one more character at start" );
+  assert( substringAfter( "abdef", "abcdef" ) === "",
+  "empty string expected after string with one more character in the middle" );
+  assert( substringAfter( "abcde", "abcdef" ) === "",
+     "empty string expected after string with one more character in the end" );
 
   assert(
     substringAfter( "abc+def*ghi(jk)?lmn", "+def*ghi(jk)" ) === "?lmn",
             "end of string expected after substring with special characters" );
   assert(
-    substringAfter( "+def*ghi(jk)?", "+def*ghi(jk)?lmn" ) === "+def*ghi(jk)?",
+    substringAfter( "+def*ghi(jk)?", "+def*ghi(jk)?lmn" ) === "",
     "empty string expected when substring with special characters is longer" );
 
 }) );
