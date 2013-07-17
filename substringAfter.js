@@ -8,6 +8,9 @@
   Returns:
     string, the end of the string after the first occurrence of given substring
     or the empty string when the substring is not found in the string.
+
+  Note:
+    When the substring is the empty string, the whole string is returned.
 */
 function substringAfter( string, substring ) {
   var position = string.indexOf( substring );
