@@ -1,0 +1,44 @@
+<script src="assert.js"></script>
+<script src="test.js"></script>
+<script src="../contains.js"></script>
+<script>
+document.write( test( function() {
+
+  assert( contains( "", "" ),   "empty string must be found in empty string" );
+  assert( contains( "abcdef", "" ),
+                            "empty string must be found in non-empty string" );
+  assert( contains( "abcdef", "a" ),
+                    "1-letter string must be found at start of longer chain" );
+  assert( contains( "abcdef", "abc" ),
+                    "3-letter string must be found at start of longer chain" );
+  assert( contains( "abcdef", "c" ),
+                   "1-letter string must be found in middle of longer chain" );
+  assert( contains( "abcdef", "bc" ),
+                   "2-letter string must be found in middle of longer chain" );
+  assert( contains( "abcdef", "bcde" ),
+                   "4-letter string must be found in middle of longer chain" );
+  assert( contains( "abcdef", "f" ),
+                      "1-letter suffix must be found at end of longer chain" );
+  assert( contains( "abcdef", "ef" ),
+                      "2-letter suffix must be found at end of longer chain" );
+  assert( contains( "abcdef", "abcdef" ),
+                                       "full string must be found in itself" );
+
+  assert( !contains( "", "abcdef" ),
+                        "non-empty string must not be found in empty string" );
+  assert( !contains( "a", "abcdef" ),
+                           "long string must not be found in 1-letter chain" );
+  assert( !contains( "bcdef", "abcdef" ),
+     "string must not be found in chain shorter of 1 character at the start" );
+  assert( !contains( "abdef", "abcdef" ),
+    "string must not be found in chain shorter of 1 character in the middle" );
+  assert( !contains( "abcde", "abcdef" ),
+       "string must not be found in chain shorter of 1 character at the end" );
+
+  assert( contains( "wxyzabc+def*ghi(klm)?nopq", "abc+def*ghi(klm)?" ),
+             "string with special characters must be found in longer string" );
+  assert( !contains( "abc+def*ghi(klm)?", "wxyzabc+def*ghi(klm)?nopq" ),
+        "string with special characters must not be found in shorter string" );
+
+}) );
+</script>
