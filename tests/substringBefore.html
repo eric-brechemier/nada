@@ -1,0 +1,47 @@
+<script src="assert.js"></script>
+<script src="test.js"></script>
+<script src="../substringBefore.js"></script>
+<script>
+document.write( test( function() {
+
+  assert( substringBefore( "", "" ) === "",
+                 "empty string expected before empty string in empty string" );
+  assert( substringBefore( "abcdef", "" ) === "",
+                                 "empty string expected before empty string" );
+  assert( substringBefore( "abcdef", "a" ) === "",
+                                 "empty string expected before first letter" );
+  assert( substringBefore( "abcdef", "abc" ) === "",
+                   "empty string string expected before first three letters" );
+  assert( substringBefore( "abcdef", "c" ) === "ab",
+       "start of string expected before 1-letter string found in the middle" );
+  assert( substringBefore( "abcdef", "de" ) === "abc",
+       "start of string expected before 2-letter string found in the middle" );
+  assert( substringBefore( "abcdef", "bcde" ) === "a",
+      "first letter exepcted before substring one letter short on each side" );
+  assert( substringBefore( "abcdef", "f" ) === "abcde",
+                      "1-letter short substring expected before last letter" );
+  assert( substringBefore( "abcdef", "ef" ) === "abcd",
+                 "2-letter short substring expected before last two letters" );
+  assert( substringBefore( "abcdef", "abcdef" ) === "",
+                             "empty string expected before the string itself" );
+
+  assert( substringBefore( "", "abcdef" ) === "",
+             "empty string expected in empty string before non-empty string" );
+  assert( substringBefore( "a", "abcdef" ) === "",
+           "empty string expected before string not found in 1-letter chain" );
+  assert( substringBefore( "bcdef", "abcdef" ) === "",
+      "empty string expected before string with one more character at start" );
+  assert( substringBefore( "abdef", "abcdef" ) === "",
+ "empty string expected before string with one more character in the middle" );
+  assert( substringBefore( "abcde", "abcdef" ) === "",
+    "empty string expected before string with one more character in the end" );
+
+  assert(
+    substringBefore( "abc+def*ghi(jk)?lmn", "def*ghi(jk)" ) === "abc+",
+         "start of string expected before substring with special characters" );
+  assert(
+    substringBefore( "+def*ghi(jk)?", "+def*ghi(jk)?lmn" ) === "",
+    "empty string expected when substring with special characters is longer" );
+
+}) );
+</script>
