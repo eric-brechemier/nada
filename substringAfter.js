@@ -12,7 +12,7 @@
 function substringAfter( string, substring ) {
   var position = string.indexOf( substring );
   if ( position === -1 ) {
-    return string;
+    return "";
   }
   return string.slice( position + substring.length );
 }
