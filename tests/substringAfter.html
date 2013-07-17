@@ -1,0 +1,47 @@
+<script src="assert.js"></script>
+<script src="test.js"></script>
+<script src="../substringAfter.js"></script>
+<script>
+document.write( test( function() {
+
+  assert( substringAfter( "", "" ) === "",
+                  "empty string expected after empty string in empty string" );
+  assert( substringAfter( "abcdef", "" ) === "abcdef",
+                                   "full string expected after empty string" );
+  assert( substringAfter( "abcdef", "a" ) === "bcdef",
+                       "1-letter shorter string expected after first letter" );
+  assert( substringAfter( "abcdef", "abc" ) === "def",
+                "3-letter shorter string expected after first three letters" );
+  assert( substringAfter( "abcdef", "c" ) === "def",
+          "end of string expected after 1-letter string found in the middle" );
+  assert( substringAfter( "abcdef", "bc" ) === "def",
+          "end of string expected after 2-letter string found in the middle" );
+  assert( substringAfter( "abcdef", "bcde" ) === "f",
+        "last letter exepcted after substring one letter short on each side" );
+  assert( substringAfter( "abcdef", "f" ) === "",
+                                   "empty string expected after last letter" );
+  assert( substringAfter( "abcdef", "ef" ) === "",
+                              "empty string expected after last two letters" );
+  assert( substringAfter( "abcdef", "abcdef" ) === "",
+                             "empty string expected after the string itself" );
+
+  assert( substringAfter( "", "abcdef" ) === "",
+              "empty string expected in empty string after non-empty string" );
+  assert( substringAfter( "a", "abcdef" ) === "a",
+             "full string expected after string not found in 1-letter chain" );
+  assert( substringAfter( "bcdef", "abcdef" ) === "bcdef",
+        "full string expected after string with one more character at start" );
+  assert( substringAfter( "abdef", "abcdef" ) === "abdef",
+   "full string expected after string with one more character in the middle" );
+  assert( substringAfter( "abcde", "abcdef" ) === "abcde",
+     "full string expected after string with one more character in the end" );
+
+  assert(
+    substringAfter( "abc+def*ghi(jk)?lmn", "+def*ghi(jk)" ) === "?lmn",
+            "end of string expected after substring with special characters" );
+  assert(
+    substringAfter( "+def*ghi(jk)?", "+def*ghi(jk)?lmn" ) === "+def*ghi(jk)?",
+    "empty string expected when substring with special characters is longer" );
+
+}) );
+</script>
