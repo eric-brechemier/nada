@@ -25,7 +25,7 @@ document.write( test( function() {
   assert( !startsWith( "abc", "abcdef" ),
                            "long prefix must not be found in 3-letter chain" );
 
-  assert(  startsWith( "abc+def*ghi(klm)?nopq", "abc+def*ghi(klm)?" ),
+  assert( startsWith( "abc+def*ghi(klm)?nopq", "abc+def*ghi(klm)?" ),
                               "prefix with special characters must be found" );
   assert( !startsWith( "abc+def*ghi(klm)?", "abc+def*ghi(klm)?nopq" ),
         "prefix with special characters must not be found in shorter string" );
