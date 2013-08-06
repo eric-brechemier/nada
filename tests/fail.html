@@ -1,0 +1,23 @@
+<script src="test.js"></script>
+<script src="assert.js"></script>
+<script src="fail.js"></script>
+<script>
+document.write( test(function() {
+
+  var
+    MESSAGE = "Expected failure",
+    capturedError = null;
+
+  try {
+    fail( MESSAGE );
+  } catch( e ){
+    capturedError = e;
+  }
+
+  assert(
+    capturedError !== null &&
+    capturedError.message === MESSAGE,
+                           "error expected to be thrown with given message" );
+
+}) );
+</script>
