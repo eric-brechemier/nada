@@ -6,7 +6,7 @@
 
   Returns:
     boolean, false when the value is null or undefined,
-    false otherwise
+    true otherwise
 */
 function no( value ) {
   var undef; // do not trust global undefined, which can be set to a value
