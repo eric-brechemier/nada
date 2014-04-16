@@ -1,0 +1,29 @@
+<script src="test.js"></script>
+<script src="assert.js"></script>
+<script src="../nix.js"></script>
+<script>
+document.write( test(function() {
+
+  /*
+    Check that nix() returns undefined for given arguments
+  */
+  function checkNix() {
+    assert( nix.apply( this, arguments ) === undefined,
+                "nix( " + Array.prototype.join.call(arguments,", ") + "  ) " +
+                                                    "must return undefined" );
+  }
+
+  checkNix();
+  checkNix( undefined );
+  checkNix( false );
+  checkNix( true );
+  checkNix( true, false );
+  checkNix( {} );
+  checkNix( "abc" );
+  checkNix( [ 1, 2, 3 ] );
+  checkNix( 1, 2, 3 );
+  checkNix( 0 );
+  checkNix( 42 );
+  checkNix( function(){} );
+}) );
+</script>
