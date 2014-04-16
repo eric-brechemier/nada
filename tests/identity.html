@@ -1,0 +1,25 @@
+<script src="test.js"></script>
+<script src="assert.js"></script>
+<script src="../identity.js"></script>
+<script>
+document.write( test(function() {
+
+  /*
+    Check that identity() returns the value provided as parameter
+  */
+  function checkIdentity( value ) {
+    assert( identity( value ) === value,
+                           "identity( " + value + "  ) must return " + value );
+  }
+
+  checkIdentity( undefined );
+  checkIdentity( false );
+  checkIdentity( true );
+  checkIdentity( {} );
+  checkIdentity( "abc" );
+  checkIdentity( [ 1, 2, 3 ] );
+  checkIdentity( 0 );
+  checkIdentity( 42 );
+  checkIdentity( function(){} );
+}) );
+</script>
